@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--padding-->
+    <dimen name="padding_small">10dp</dimen>
+    <dimen name="padding_normal">20dp</dimen>
+    <dimen name="padding">30dp</dimen>
+    <dimen name="padding_large">40dp</dimen>
+    <dimen name="padding_extra">60dp</dimen>
+
+    <!--margin-->
+    <dimen name="margin_small">10dp</dimen>
+    <dimen name="margin_normal">20dp</dimen>
+    <dimen name="margin">30dp</dimen>
+    <dimen name="margin_large">40dp</dimen>
+    <dimen name="margin_extra">60dp</dimen>
+
+    <dimen name="text_login">30dp</dimen>
+</resources>
