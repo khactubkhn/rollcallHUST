@@ -5,7 +5,9 @@
         android:drawable="@color/white_color"/>
 
     <item
-        android:drawable="@drawable/logo"
+        android:drawable="@drawable/hust_logo"
+        android:width="100dp"
+        android:height="150dp"
         android:gravity="center">
     </item>
 

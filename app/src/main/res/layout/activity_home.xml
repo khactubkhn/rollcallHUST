@@ -10,7 +10,7 @@
 
     <android.support.v7.widget.Toolbar
         app:titleTextColor="@color/white_color"
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar1"
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"

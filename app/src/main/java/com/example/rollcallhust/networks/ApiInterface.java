@@ -1,5 +1,7 @@
 package com.example.rollcallhust.networks;
 
+import com.example.rollcallhust.models.ClassDetailResponse;
+import com.example.rollcallhust.models.CreateRollCallResponse;
 import com.example.rollcallhust.models.GeneralResponse;
 import com.example.rollcallhust.models.GetClassResponse;
 import com.example.rollcallhust.models.LoginResponse;
@@ -37,6 +39,12 @@ public interface ApiInterface {
 
     @GET("user/info")
     Call<GeneralResponse> getInfo();
+
+    @GET("class/detail/{classCode}")
+    Call<ClassDetailResponse> getClassDetail(@Path("classCode") String classCode);
+
+    @GET("class/rollcall/create/{classCode}")
+    Call<CreateRollCallResponse> createRollCall(@Path("classCode") String classCode);
 
 }
 
