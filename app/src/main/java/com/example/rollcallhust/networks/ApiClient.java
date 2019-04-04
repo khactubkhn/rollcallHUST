@@ -12,7 +12,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 
-    public static final String ROOT_URL = "http://192.168.0.103:8080/";
+//    public static final String ROOT_URL = "http://192.168.0.103:8080/";
+    public static final String ROOT_URL = "http://40.122.108.162:8080/";
     public static final String BASE_URL = ROOT_URL + "api/";
     //		private static final String ROOT_URL = "https://mettingdsd.herokuapp.com/api/";
     private static final String AUTHENTICATION = "authorization";

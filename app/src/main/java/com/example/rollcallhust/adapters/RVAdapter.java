@@ -39,7 +39,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ClassViewHolder> {
         final Class studyClass = datas.get(i);
         classViewHolder.tvPriority.setText(String.valueOf(i+1));
         classViewHolder.tvClassCode.setText("Mã lớp: " + studyClass.getClassCode());
-        classViewHolder.tvClassName.setText("Tên lớp: " + studyClass.getClassName());
+        classViewHolder.tvClassName.setText(studyClass.getClassName());
         classViewHolder.tvClassSize.setText("Sĩ số: " + studyClass.getSize());
 //        noteViewHolder.tvTitleNote.setText(note.getTitle());
 //        noteViewHolder.tvDescription.setText(note.getDescription());

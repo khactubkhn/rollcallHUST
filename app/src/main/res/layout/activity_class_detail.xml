@@ -15,156 +15,38 @@
         android:layout_height="?attr/actionBarSize"
         app:theme="@style/ThemeOverlay.AppCompat.Light"></android.support.v7.widget.Toolbar>
 
-    <RelativeLayout
-        android:layout_weight="50"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp">
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <LinearLayout
-                android:padding="15dp"
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textStyle="bold"
-                        android:textSize="20dp"
-                        android:text="Mã lớp: "
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:id="@+id/tvClassCodeDetail"
-                        android:textSize="20dp"
-                        android:text="10785"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textStyle="bold"
-                        android:textSize="20dp"
-                        android:text="Học kỳ: "
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:id="@+id/tvTermClassDetail"
-                        android:textSize="20dp"
-                        android:text="20182"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textStyle="bold"
-                        android:textSize="20dp"
-                        android:text="Tên lớp: "
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:id="@+id/tvClassNameDetail"
-                        android:textSize="20dp"
-                        android:text="Kỹ thuật lập trình"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textStyle="bold"
-                        android:textSize="20dp"
-                        android:text="Sĩ số:"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:id="@+id/tvSizeClassDetail"
-                        android:textSize="20dp"
-                        android:text="50"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textStyle="bold"
-                        android:textSize="20dp"
-                        android:text="Thời gian:"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:id="@+id/tvFromDetail"
-                        android:textSize="20dp"
-                        android:text="02/4/2019"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:textSize="20dp"
-                        android:text="-"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:id="@+id/tvToDetail"
-                        android:textSize="20dp"
-                        android:text="02/4/2019"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-            </LinearLayout>
-        </ScrollView>
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_weight="1"
+    <android.support.v4.app.FragmentTabHost
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@android:id/tabhost"
         android:layout_width="match_parent"
-        android:background="@color/colorPrimary"
-        android:layout_height="0dp"></LinearLayout>
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:background="#F5F5F5"
-        android:layout_weight="120"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
-
-        <android.support.v7.widget.RecyclerView
-            android:layout_marginTop="@dimen/margin_small"
-            android:paddingLeft="@dimen/padding_small"
-            android:paddingRight="@dimen/padding_small"
-            android:id="@+id/rvRollCall"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        </android.support.v7.widget.RecyclerView>
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="0"/>
 
-    </LinearLayout>
+            <FrameLayout
+                android:id="@+id/realtabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <TabWidget
+                android:id="@android:id/tabs"
+
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"/>
+
+        </LinearLayout>
+    </android.support.v4.app.FragmentTabHost>
 
 </LinearLayout>
