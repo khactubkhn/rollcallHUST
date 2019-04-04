@@ -9,6 +9,7 @@
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
         <item name="actionOverflowButtonStyle">@style/actionOverflowButtonStyle</item>
         <item name="android:actionMenuTextColor">@color/white_color</item>
+        <item name="titleTextColor">@color/titleTextColor</item>
     </style>
 
     <style name="SplashscreenTheme" parent="Theme.AppCompat.Light.NoActionBar">

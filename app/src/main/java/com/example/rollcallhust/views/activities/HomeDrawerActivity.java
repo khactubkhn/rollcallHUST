@@ -10,9 +10,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.rollcallhust.R;
 import com.example.rollcallhust.managers.AppPreference;
+import com.example.rollcallhust.models.User;
 import com.example.rollcallhust.views.HomeView;
 import com.example.rollcallhust.views.fragments.MainFragment;
 import com.example.rollcallhust.views.fragments.TeacherClassFragment;
@@ -70,6 +73,9 @@ public class HomeDrawerActivity extends AppCompatActivity implements HomeView {
         drawerToggle.syncState();
         replaceFragment(MainFragment.newInstance("", ""));
         getSupportActionBar().setTitle(R.string.home);
+
+        User user = AppPreference.INSTANCE.getUser();
+        onInitUserHeader(user.getUsername(), user.getEmail());
     }
 
     @Override
@@ -99,5 +105,17 @@ public class HomeDrawerActivity extends AppCompatActivity implements HomeView {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment);
         fragmentTransaction.commitAllowingStateLoss();
+    }
+
+    public void onInitUserHeader(String username, String email) {
+        View headerView = navigationView.getHeaderView(0);
+        TextView tvUsername = headerView.findViewById(R.id.tvUsername);
+        TextView tvEmail = headerView.findViewById(R.id.tvEmail);
+        TextView tvLetter = headerView.findViewById(R.id.tvLetter);
+        tvUsername.setText("Tài khoản: " + username);
+        tvEmail.setText("Email: " + email);
+
+        String usrnameUpper = username.toUpperCase();
+        tvLetter.setText(String.valueOf(usrnameUpper.charAt(0)));
     }
 }

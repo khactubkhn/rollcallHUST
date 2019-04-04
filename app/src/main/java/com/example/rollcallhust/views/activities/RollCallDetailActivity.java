@@ -1,10 +1,19 @@
 package com.example.rollcallhust.views.activities;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.os.Build;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentTabHost;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -16,11 +25,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rollcallhust.R;
+import com.example.rollcallhust.networks.ApiClient;
+import com.example.rollcallhust.views.fragments.ImageRollCallFragment;
 import com.example.rollcallhust.views.fragments.ListDetailRollCallFragment;
 import com.example.rollcallhust.views.fragments.UploadImageFragment;
 
+import net.alhazmy13.mediapicker.Image.ImagePicker;
+
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RollCallDetailActivity extends AppCompatActivity {
     @BindView(R.id.toolbarRollCallDetail)
@@ -69,24 +88,35 @@ public class RollCallDetailActivity extends AppCompatActivity {
     }
 
     void selectImage(){
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), REQUEST_IMAGE_CODE);
+//        Intent intent = new Intent();
+//        intent.setType("image/*");
+//        intent.setAction(Intent.ACTION_GET_CONTENT);
+//        startActivityForResult(Intent.createChooser(intent, "Select Picture"), REQUEST_IMAGE_CODE);
+//        ImagePicker imagePicker = new ImagePicker.Builder(RollCallDetailActivity.this)
+//                .mode(ImagePicker.Mode.CAMERA_AND_GALLERY)
+//                .compressLevel(ImagePicker.ComperesLevel.MEDIUM)
+//                .directory(ImagePicker.Directory.DEFAULT)
+//                .extension(ImagePicker.Extension.PNG)
+//                .scale(600, 600)
+//                .allowMultipleImages(true)
+//                .enableDebuggingMode(true)
+//                .build();
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == REQUEST_IMAGE_CODE && resultCode == RESULT_OK){
-            Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
+        if(requestCode == ImagePicker.IMAGE_PICKER_REQUEST_CODE && resultCode == RESULT_OK){
+            List<String> mPaths = data.getStringArrayListExtra(ImagePicker.EXTRA_IMAGE_PATH);
+            Toast.makeText(this, ""+ mPaths.size(), Toast.LENGTH_SHORT).show();
         }
     }
 
     private void initTabHost(){
         tabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
         tabHost.addTab(tabHost.newTabSpec("tab1").setIndicator("Tải ảnh lên"),
-                UploadImageFragment.class, null);
+                ImageRollCallFragment.class, null);
 
         tabHost.addTab(tabHost.newTabSpec("tab2").setIndicator("Kết quả điểm danh"),
                 ListDetailRollCallFragment.class, null);
