@@ -5,12 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".views.activities.HomeActivity">
-
+    tools:context=".views.activities.ClassDetailActivity">
 
     <android.support.v7.widget.Toolbar
         app:titleTextColor="@color/white_color"
-        android:id="@+id/toolbar1"
+        android:id="@+id/toolbarDetailClass"
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"

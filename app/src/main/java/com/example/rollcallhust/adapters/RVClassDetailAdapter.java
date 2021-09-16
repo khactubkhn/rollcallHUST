@@ -7,52 +7,49 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rollcallhust.R;
 import com.example.rollcallhust.listeners.ItemClickListener;
 import com.example.rollcallhust.models.Class;
+import com.example.rollcallhust.models.RollCall;
 import com.example.rollcallhust.views.activities.ClassDetailActivity;
-
-import org.w3c.dom.Text;
+import com.example.rollcallhust.views.activities.RollCallDetailActivity;
 
 import java.util.List;
 
-public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ClassViewHolder> {
-    List<Class> datas;
+public class RVClassDetailAdapter extends RecyclerView.Adapter<RVClassDetailAdapter.ClassDetailViewHolder> {
+    List<RollCall> datas;
     Context context;
-    public RVAdapter(List<Class> datas, Context context){
+    public RVClassDetailAdapter(List<RollCall> datas, Context context){
         this.datas = datas;
         this.context = context;
     }
     @NonNull
     @Override
-    public ClassViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.class_cardview, viewGroup, false);
-        return new ClassViewHolder(v);
+    public ClassDetailViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.class_detail_cardview, viewGroup, false);
+        return new ClassDetailViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ClassViewHolder classViewHolder, int i) {
-        final Class studyClass = datas.get(i);
-        classViewHolder.tvPriority.setText(String.valueOf(i+1));
-        classViewHolder.tvClassCode.setText("Mã lớp: " + studyClass.getClassCode());
-        classViewHolder.tvClassName.setText(studyClass.getClassName());
-        classViewHolder.tvClassSize.setText("Sĩ số: " + studyClass.getSize());
+    public void onBindViewHolder(@NonNull ClassDetailViewHolder classDetailViewHolder, int i) {
+        RollCall rollCall = datas.get(i);
 //        noteViewHolder.tvTitleNote.setText(note.getTitle());
 //        noteViewHolder.tvDescription.setText(note.getDescription());
 //        noteViewHolder.tvDate.setText(note.getDate());
 //        noteViewHolder.tvContent.setText(note.getContent());
-//        noteViewHolder.tvPriority.setText("" + (i+1));
-        classViewHolder.setItemClickListener(new ItemClickListener() {
+        classDetailViewHolder.tvPriority.setText("" + (i+1));
+        classDetailViewHolder.tvDateRollCall.setText(rollCall.getDate());
+        classDetailViewHolder.tvTimeRollCall.setText(rollCall.getTime());
+        classDetailViewHolder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onClick(View view, int position, boolean isLongClick) {
                 if(!isLongClick){
-                    String classCode = datas.get(position).getClassCode();
-                    Intent intent = new Intent(context, ClassDetailActivity.class);
-                    intent.putExtra("classCode", classCode);
+                    Intent intent = new Intent(context, RollCallDetailActivity.class);
+                    intent.putExtra("rollCallId", datas.get(position).getRollCallId());
+                    //Toast.makeText(context, datas.get(position).getRollCallId() + "", Toast.LENGTH_SHORT).show();
                     context.startActivity(intent);
                 }
             }
@@ -64,26 +61,24 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ClassViewHolder> {
         return datas.size();
     }
 
-    public static class ClassViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
+    public static class ClassDetailViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
 
         private ItemClickListener itemClickListener;
 
         TextView tvPriority;
-        TextView tvClassCode;
-        TextView tvClassName;
-        TextView tvClassSize;
+        TextView tvDateRollCall;
+        TextView tvTimeRollCall;
 
         public void setItemClickListener(ItemClickListener itemClickListener)
         {
             this.itemClickListener = itemClickListener;
         }
 
-        ClassViewHolder(View itemView) {
+        ClassDetailViewHolder(View itemView) {
             super(itemView);
             tvPriority = itemView.findViewById(R.id.tvPriority);
-            tvClassCode = itemView.findViewById(R.id.tvClassCode);
-            tvClassName = itemView.findViewById(R.id.tvClassName);
-            tvClassSize = itemView.findViewById(R.id.tvClassSize);
+            tvDateRollCall = itemView.findViewById(R.id.tvDateRollCall);
+            tvTimeRollCall = itemView.findViewById(R.id.tvTimeRollCall);
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
         }

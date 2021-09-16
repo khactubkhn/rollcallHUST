@@ -23,9 +23,13 @@ public class LoginPresenterImpl implements LoginPresenter {
                 if(response.isSuccessful()){
                     if(response.body().isSuccess()){
                         LoginResponse loginResponse = response.body();
+//                        if(loginResponse.getUser().getStudentCode() != null){
+//                            loginView.onLoginFail();
+//                            return;
+//                        }
                         AppPreference.INSTANCE.setToken(loginResponse.getToken());
                         AppPreference.INSTANCE.setUser(loginResponse.getUser());
-                        System.out.println("TOKEN: " + loginResponse.getToken());
+                        //System.out.println("TOKEN: " + loginResponse.getToken());
                         loginView.onLoginSuccess();
                     }
                 }

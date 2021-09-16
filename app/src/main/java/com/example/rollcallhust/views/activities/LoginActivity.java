@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     public void onLoginSuccess() {
         hideProgressDialog();
         startActivity(
-                new Intent(this, HomeActivity.class)
+                new Intent(this, HomeDrawerActivity.class)
         );
     }
 

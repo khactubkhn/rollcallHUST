@@ -1,66 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/colorPrimary"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".views.activities.LoginActivity">
 
+
     <LinearLayout
-        android:padding="30dp"
-        android:orientation="vertical"
-        android:layout_centerVertical="true"
+        android:background="@color/colorPrimary"
+        android:layout_weight="2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:orientation="horizontal"
+        android:layout_height="0dp">
+
+        <ImageView
+            android:layout_marginLeft="-100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/hust_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="110dp" />
 
         <TextView
-            android:textSize="@dimen/text_login"
-            android:textColor="@color/white_color"
+            android:textAlignment="center"
+            android:layout_marginLeft="-100dp"
+            android:textSize="25dp"
             android:textStyle="bold"
-            android:text="ĐĂNG NHẬP"
             android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/margin_normal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
-        <EditText
-            android:id="@+id/edUsername"
-            android:padding="@dimen/padding_normal"
-            android:drawableLeft="@drawable/user"
-            android:drawablePadding="@dimen/padding_small"
-            android:textColorHint="@color/white_color"
-            android:hint="@string/username"
-            android:backgroundTint="@color/white_color"
+            android:text="ỨNG DỤNG ĐIỂM DANH"
             android:textColor="@color/white_color"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <EditText
-            android:id="@+id/edPassword"
-            android:inputType="textPassword"
-            android:layout_marginTop="@dimen/margin_normal"
-            android:padding="@dimen/padding_normal"
-            android:drawableLeft="@drawable/lock"
-            android:drawablePadding="@dimen/padding_small"
-            android:textColorHint="@color/white_color"
-            android:hint="@string/password"
-            android:backgroundTint="@color/white_color"
-            android:textColor="@color/white_color"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/btnLogin"
-            android:textColor="@color/colorPrimary"
-            android:background="@color/white_color"
-            android:backgroundTint="@color/white_color"
-            android:text="@string/login"
-            android:layout_marginTop="@dimen/margin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
-</RelativeLayout>
+
+    <RelativeLayout
+        android:layout_weight="5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <LinearLayout
+            android:padding="30dp"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <EditText
+                android:id="@+id/edUsername"
+                android:padding="@dimen/padding_normal"
+                android:drawableLeft="@drawable/user"
+                android:drawablePadding="@dimen/padding_small"
+                android:textColorHint="@color/colorPrimary"
+                android:hint="@string/username"
+                android:backgroundTint="@color/colorPrimary"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/edPassword"
+                android:inputType="textPassword"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:padding="@dimen/padding_normal"
+                android:drawableLeft="@drawable/password"
+                android:drawablePadding="@dimen/padding_small"
+                android:textColorHint="@color/colorPrimary"
+                android:hint="@string/password"
+                android:backgroundTint="@color/colorPrimary"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:textColor="@color/white_color"
+                android:background="@color/white_color"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="@string/login"
+                android:layout_marginTop="@dimen/margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+
+</LinearLayout>

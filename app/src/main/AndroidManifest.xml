@@ -6,8 +6,8 @@
     <dist:module dist:instant="true" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -17,7 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.activities.UploadActivity"></activity>
+        <activity android:name=".views.activities.RollCallDetailActivity"></activity>
+        <activity android:name=".views.activities.ClassDetailActivity" />
+        <activity android:name=".views.activities.HomeDrawerActivity" />
+        <activity android:name=".views.activities.UploadActivity" />
         <activity android:name=".views.activities.HomeActivity" />
         <activity android:name=".views.activities.LoginActivity" />
         <activity
